@@ -1,0 +1,38 @@
+<%- include("header.ejs") %>     
+  <header class="py-4">
+    </header>
+
+  <main class="container text-dark" >
+    <h1 class="mb-4">Contact Us</h1>
+    <p class="lead">We'd love to hear from you! Reach out with any questions and feedbacks</p>
+
+    <form action="/contact-us" method="post" class="row g-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+
+      <div class="col-12">
+        <label for="message" class="form-label">Message:</label>
+        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
+    </form>
+
+    
+
+    <hr class="my-4">
+
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Also Contact Us though</h3>
+        <ul class="list-unstyled">
+            <li>Email: <a href="mailto:ajaydhisone7@gmail.com">ajaydhisone7@gmail.com</a></li>
+          </ul>
+      </div>
+      
+    </div>
+  </main>
+  <%- include("footer.ejs") %>     

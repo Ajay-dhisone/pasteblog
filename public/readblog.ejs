@@ -1,0 +1,27 @@
+<%- include("header.ejs") %>
+
+  <div class="col">
+    <div class="card h-100 " style="background-color:#F8F9FA; padding: 0% 15% 0% 15%;">
+      <!-- <img src="post_image1.jpg" class="card-img-top" alt="..."> -->
+      <br>
+      
+     
+      
+
+      <div class="card-body" style="font-size:x-large; font-family: 'Times New Roman', Times, serif;">
+        <h1 style="text-align: center; font-size: 200%;" class="card-title"><%= title %></h1>
+
+        <i>
+          Written by</i>
+        <p><img src="<%= blogger.picurl %>" class="rounded-circle" style="width: auto;max-height: 45px;"
+          alt="Avatar" /><a  href="/profile/<%= blogger.googleId %>" style="text-decoration: none;margin-left: 5px;" > <%= blogger.name.toUpperCase() %>  </a>  </p>
+       <!-- <a style="color: black;" href="/posts/<%= blogger.googleId %>/like"><i  style="margin-left: 20px;" class="bi bi-hand-thumbs-up"></i></a> -->
+        <hr>
+        <p  class="card-text"><%= content %></p>
+      </div>
+    </div>
+      
+  </div>
+
+  <%- include("footer.ejs") %>
+

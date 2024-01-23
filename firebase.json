@@ -1,0 +1,8 @@
+{
+  "hosting": {
+    "source": "."
+  },
+  "functions": {
+    "source": "functions"
+  }
+}

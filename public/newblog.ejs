@@ -1,0 +1,19 @@
+<%- include("header.ejs") %>      
+
+
+  <section class="container mt-5">
+    <h1 style="border-bottom: 1px solid black; padding-bottom: 5px;" class="text-dark">New Blog</h1>
+    <form action="/newblog" method="post">
+      <div class="mb-3 text-dark">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control  bg-light text-dark" id="title" name="title" placeholder="Enter a catchy title"  required>
+      </div>
+      <div class="mb-3">
+        <label for="content" class="form-label text-dark">Content:</label>
+        <textarea class="form-control   bg-light text-dark" id="content" name="content" rows="10" placeholder="Write your blog post here"  required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Publish Blog Post</button>
+    </form>
+  </section>
+
+  <%- include("footer.ejs") %>      
