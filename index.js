@@ -219,46 +219,83 @@ const Mailjet = mailjet.apiConnect(
 );
 
 
-
 app.post('/contact-us', async (req, res) => {
 
   const { name, message } = req.body;
 
-  const request = Mailjet
-        .post('send', { version: 'v3.1' })
-        .request({
-          Messages: [
-            {
-              From: {
-                Email: req.user.email,
-                Name: name
-              },
-              To: [
-                {
-                  Email: "ajdhisone07@gmail.com",
-                  Name: "Ajay"
-                }
-              ],
-              Subject: "check",
-              TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
-              HTMLPart: '<p>'+ message +'</p>'
-            }
-          ]
-        })
-        val="2"
-        res.redirect("/?val="+val)
+  try {
+    const response = await Mailjet
+      .post('send', { version: 'v3.1' })
+      .request({
+        Messages:  [
+          {
+            From: {
+              Email: req.user.email,
+              Name: name
+            },
+            To: [
+              {
+                Email: "ajdhisone07@gmail.com",
+                Name: "Ajay"
+              }
+            ],
+            Subject: "check",
+            TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
+            HTMLPart: '<p>'+ message +'</p>'
+          }
+        ]
+      });
 
-    .then((result) => {
-        // console.log(result.body)
-        // console.log(result.body)
-        console.log();
-        
-    })
-    .catch((err) => {
-        console.log(err.statusCode)
-    })
-
+    // Handle successful email sending
+    val = "2";
+    res.redirect("/?val=" + val);
+  } catch (err) {
+    // Handle errors
+    console.error(err); // Log the full error object for debugging
+    res.status(500).send("Error sending email"); // Send a generic error response
+  }
 });
+
+// app.post('/contact-us', async (req, res) => {
+
+//   const { name, message } = req.body;
+
+//   const request = Mailjet
+//         .post('send', { version: 'v3.1' })
+//         .request({
+//           Messages: [
+//             {
+//               From: {
+//                 Email: req.user.email,
+//                 Name: name
+//               },
+//               To: [
+//                 {
+//                   Email: "ajdhisone07@gmail.com",
+//                   Name: "Ajay"
+//                 }
+//               ],
+//               Subject: "check",
+//               TextPart: "Dear passenger 1, welcome to Mailjet! May the delivery force be with you!",
+//               HTMLPart: '<p>'+ message +'</p>'
+//             }
+//           ]
+//         })
+//         val="2"
+//         res.redirect("/?val="+val)
+
+//     // .then((result) => {
+//     //     // console.log(result.body)
+//     //     // console.log(result.body)
+//     //     console.log();
+        
+//     }) catch (err) {
+//       // Handle errors
+//       console.error(err); // Log the full error object for debugging
+//       res.status(500).send("Error sending email"); // Send a generic error response
+//     }
+  
+// });
 
 
 

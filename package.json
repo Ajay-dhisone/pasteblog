@@ -30,7 +30,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "ajay",
   "license": "ISC",
   "description": "",
   "devDependencies": {
